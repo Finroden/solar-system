@@ -80,3 +80,27 @@ const planetData = {
         discovery: 'Discovered by Johann Galle in 1846'
     }
 };
+
+const planets = document.querySelectorAll('.planet');
+
+planets.forEach(planet => {
+    planet.addEventListener('click', () => {
+        const id = planet.id;
+        const data = planetData[id];
+
+        document.getElementById('planet-name').innerText = data.name;
+        document.getElementById('planet-description').innerText = data.description;
+        document.getElementById('planet-rotation').innerText = `Rotation: ${data.rotation}`;
+        document.getElementById('planet-distance').innerText = `Distance: ${data.distance}`;
+        document.getElementById('planet-size').innerText = `Size: ${data.size}`;
+        document.getElementById('planet-mass').innerText = `Mass: ${data.mass}`;
+        document.getElementById('planet-temperature').innerText = `Temperature: ${data.temperature}`;
+        document.getElementById('planet-discovery').innerText = `Discovery: ${data.discovery}`;
+
+        document.querySelector('.navbar-planet').classList.add('active');
+    });
+});
+
+document.getElementById('close-navbar').addEventListener('click', () => {
+    document.querySelector('.navbar-planet').classList.remove('active');
+});

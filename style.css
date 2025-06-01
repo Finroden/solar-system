@@ -38,6 +38,8 @@ body {
     border: 1px dashed rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     animation: rotate infinite linear;
+    overflow: visible;
+    pointer-events: none;
 }
 
 .planet {
@@ -46,6 +48,22 @@ body {
     left: 100%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 100;
+}
+
+.planet::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    border-radius: 50%;
+    pointer-events: auto;
 }
 
 .orbit-mercury {
@@ -156,7 +174,7 @@ body {
 .navbar-planet {
     position: fixed;
     top: 0;
-    left: -300px;
+    left: -900px;
     width: 300px;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.95);
@@ -183,3 +201,35 @@ body {
     cursor: pointer;
 }
 
+@media (max-width: 600px) {
+    .navbar-planet {
+        width: 37.5rem;
+        left: -37.5rem;
+        padding: 0.9375rem 0.625rem;
+    }
+    .navbar-planet.active {
+        left: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .navbar-planet {
+        width: 15.625rem;
+        left: -15.625rem;
+        padding: 1.25rem;
+    }
+    .navbar-planet.active {
+        left: 0;
+    }
+}
+
+@media (max-width: 1200px) {
+    .navbar-planet {
+        width: 17.5rem;
+        left: -17.5rem;
+        padding: 1.25rem;
+    }
+    .navbar-planet.active {
+        left: 0;
+    }
+}
