@@ -26,8 +26,8 @@ const planetData = {
         distance: '150M km',
         size: '12,742 km',
         mass: '5.97 x 10²⁴ kg',
-        temperature: '15°C (average)',
-        discovery: 'Not applicable (home planet)'
+        temperature: '15°C',
+        discovery: 'Home planet'
     },
     mars: {
         name: 'Mars',
